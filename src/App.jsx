@@ -28,17 +28,28 @@ import {
 } from "lucide-react";
 
 // ============================================
-// 📡 LISTAS M3U ESTABLES (IPTV-ORG)
+// 📡 LISTAS M3U (ACTUALIZADAS)
 // ============================================
 const M3U_SOURCES = [
-  { name: "Argentina", url: "https://iptv-org.github.io/iptv/countries/ar.m3u", country: "AR", defaultCat: "Canales de aire" },
-  { name: "Latinoamérica", url: "https://iptv-org.github.io/iptv/regions/lat.m3u", country: "LAT", defaultCat: "Internacional" },
-  { name: "Películas", url: "https://iptv-org.github.io/iptv/categories/movies.m3u", country: "INT", defaultCat: "Cine y Series" },
-  { name: "Series", url: "https://iptv-org.github.io/iptv/categories/series.m3u", country: "INT", defaultCat: "Cine y Series" },
+  // 🎬 CINE Y SERIES COMPLETO (HBO, Cinemax, Warner, etc.)
+  { name: "Películas y Series", url: "https://raw.githubusercontent.com/altobelly/iprusia/main/playlist.m3u", country: "LAT", defaultCat: "Cine y Series" },
+  
+  // 🌎 TODOS LOS CANALES EN ESPAÑOL (incluye cine)
+  { name: "Español Latino", url: "https://iptv-org.github.io/iptv/languages/spa.m3u", country: "LAT", defaultCat: "Latinoamérica" },
+  
+  // ⚽ DEPORTES (ESPN, Fox Sports, TNT Sports)
   { name: "Deportes", url: "https://iptv-org.github.io/iptv/categories/sports.m3u", country: "INT", defaultCat: "Deportes" },
-  { name: "Infantiles", url: "https://iptv-org.github.io/iptv/categories/kids.m3u", country: "INT", defaultCat: "Infantil" },
-  { name: "Noticias", url: "https://iptv-org.github.io/iptv/categories/news.m3u", country: "INT", defaultCat: "Noticias" },
-  { name: "Música", url: "https://iptv-org.github.io/iptv/categories/music.m3u", country: "INT", defaultCat: "Música" },
+  
+  // 🎬 CINE EXCLUSIVO (solo películas 24/7)
+  { name: "Cine 24/7", url: "https://iptv-org.github.io/iptv/categories/movies.m3u", country: "INT", defaultCat: "Cine y Series" },
+  
+  // 📺 SERIES EXCLUSIVO
+  { name: "Series", url: "https://iptv-org.github.io/iptv/categories/series.m3u", country: "INT", defaultCat: "Cine y Series" },
+  
+  // 🇦🇷 ARGENTINA (tus canales locales)
+  { name: "Argentina", url: "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/ar.m3u", country: "AR", defaultCat: "Canales de aire" },
+  
+  // El resto de tus listas...
 ];
 
 // ============================================
@@ -101,7 +112,7 @@ const MAIN_CATEGORIES = [
   "Regionales",
   "Noticias",
   "Deportes",
-  "Cine y Series",
+  "Cine y Series",  // ← ¡Aquí están tus canales de cine!
   "Música",
   "Infantil",
   "Documentales",
@@ -448,7 +459,7 @@ export default function App() {
         <header className="flex flex-col gap-4 border-b border-white/10 px-4 py-4 md:px-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src="/logo1.png" 
+              src="/logo3.png" 
               alt="MQ TV" 
               className="h-16 w-auto object-contain" 
               onError={(e) => { e.currentTarget.src = "https://placehold.co/200x80/1e293b/orange?text=MQ+TV"; }} 
